@@ -3,7 +3,7 @@
   <channel>
       <title>Recent Content on my new hugo site </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/index.xml/</link>
+    <link>http://yourSiteHere/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Reagent</title>
-      <link>http://localhost:1313/reagent/</link>
+      <link>http://yoursitehere/reagent/</link>
       <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/reagent/</guid>
+      <guid>http://yoursitehere/reagent/</guid>
       <description>
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Reagent&lt;/h1&gt;
@@ -25,10 +25,10 @@
     
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/javascript/</link>
+      <link>http://yoursitehere/javascript/</link>
       <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/javascript/</guid>
+      <guid>http://yoursitehere/javascript/</guid>
       <description>
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Working With JavaScript&lt;/h1&gt;
