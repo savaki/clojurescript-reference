@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+  <title>my new hugo site | ClojureScript Reference</title>
+  <link href="" rel="alternate" type="application/rss+xml" title="my new hugo site"/>
+  <link href='/css/website.css' rel='stylesheet' type='text/css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    
+    
+    $(".main-content h2, .main-content h3").each(function (index, element) {
+      var target = "#" + element.id;
+
+      var link = document.createElement("a");
+      link.setAttribute("href", "#");
+      link.innerHTML = element.innerText;
+      link.onclick = function (event) {
+        $('html, body').animate({
+          scrollTop: $(target).offset().top
+        }, 1000);
+      };
+
+      var item = document.createElement("li");
+      item.appendChild(link);
+      item.className = element.tagName;
+
+      $(".quick-links ul").append(item);
+    });
+  });
+</script>
+
+
+<link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body lang="en">
+<div id="header">
+  <div class="content clearfix">
+    <ul class='nav clearfix javascript'>
+      <li class="nav-item overview"><a href="/">Overview</a></li>
+      <li class="nav-item javascript"><a href="/javascript/">JavaScript</a></li>
+      <li class="nav-item reagent"><a href="/reagent/">Reagent</a></li>
+    </ul>
+    <h1>ClojureScript Reference</h1>
+  </div>
+</div>
+
+<section class="content clearfix">
+  <div class="quick-links">
+    <h3>Quick Links</h3>
+    <ul></ul>
+  </div>
+  <div class="main-content">
+    
+
+<h1 id="toc_0">Working With JavaScript</h1>
+
+<h2 id="toc_1">Accessing vars</h2>
+
+<p>In general, JavaScript variables can be referenced using the js prefix.</p>
+
+<p>For example, the <em>name</em> var from the following snippet:</p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+  var name = &quot;Matt&quot;;
+&lt;/script&gt;
+</code></pre>
+
+<p>can be accessed as:</p>
+
+<pre><code>js/name
+</code></pre>
+
+<p>e.g.</p>
+
+<pre><code class="language-clojure">(println js/name)
+</code></pre>
+
+<h2 id="toc_2">Accessing object attributes</h2>
+
+<p>Often, we want to access an attribute of a variable.  Given the following:</p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+  var person = {name: &quot;Matt&quot;}
+&lt;/script&gt;
+</code></pre>
+
+<p>We can access this via:</p>
+
+<pre><code>(.-name js/person)
+</code></pre>
+
+<p><em>js/person</em> references the variable, person, and  .-name tells ClojureScript you want to
+access the attribute, name.</p>
+
+<p>For example:</p>
+
+<pre><code>(println &quot;hello &quot; (.-name js/person))
+</code></pre>
+
+<h2 id="toc_3">Invoking methods</h2>
+
+<p>Calling a method is similar to access an attribute.  Suppose we want to invoke:</p>
+
+<pre><code>document.getElementById(&quot;app&quot;)
+</code></pre>
+
+<p>We would write:</p>
+
+<pre><code>(.getElementById js/document &quot;app&quot;)
+</code></pre>
+
+<p>If we take a moment and remove the punctuation, we see that JavaScript references values
+as follows:</p>
+
+<pre><code>object function args ...
+</code></pre>
+
+<p>In ClojureScript, we simply reverse that to:</p>
+
+<pre><code>function object args ...
+</code></pre>
+
+<p>And apply the appropriate language syntax.</p>
+
+<p>Here&rsquo;s another example:</p>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var example = { 
+  greeting: function(name) {
+    console.log(&quot;hello &quot; + name);
+  }
+};
+&lt;/script&gt;
+</code></pre>
+
+<p>We can invoke the greeting method from ClojureScript as follows:</p>
+
+<pre><code>(.greeting js/example &quot;Matt&quot;)
+</code></pre>
+
+<p>The same in JavaScript would have been:</p>
+
+<pre><code>example.greeting(&quot;Matt&quot;)
+</code></pre>
+
+  </div>
+</section>
+
+<div id="footer">
+</div>
+
+</body>

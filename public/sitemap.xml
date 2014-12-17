@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://yoursitehere/</loc>
     <lastmod>2008-01-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/reagent/</loc>
+    <loc>http://yoursitehere/reagent/</loc>
     <lastmod>2008-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/javascript/</loc>
+    <loc>http://yoursitehere/javascript/</loc>
     <lastmod>2008-01-01T00:00:00+00:00</lastmod>
   </url>
   
