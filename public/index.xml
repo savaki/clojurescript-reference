@@ -7,7 +7,122 @@
     <language>en-us</language>
     
     
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Tue, 01 Jan 2008 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Reagent</title>
+      <link>http://localhost:1313/reagent/</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/reagent/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Reagent&lt;/h1&gt;
+
+&lt;p&gt;this is reagent&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/javascript/</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/javascript/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Working With JavaScript&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Accessing vars&lt;/h2&gt;
+
+&lt;p&gt;In general, JavaScript variables can be referenced using the js prefix.&lt;/p&gt;
+
+&lt;p&gt;For example, the &lt;em&gt;name&lt;/em&gt; var from the following snippet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+  var name = &amp;quot;Matt&amp;quot;;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;can be accessed as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;js/name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-clojure&#34;&gt;(println js/name)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Accessing object attributes&lt;/h2&gt;
+
+&lt;p&gt;Often, we want to access an attribute of a variable.  Given the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+  var person = {name: &amp;quot;Matt&amp;quot;}
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can access this via:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(.-name js/person)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;js/person&lt;/em&gt; references the variable, person, and  .-name tells ClojureScript you want to
+access the attribute, name.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(println &amp;quot;hello &amp;quot; (.-name js/person))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Invoking methods&lt;/h2&gt;
+
+&lt;p&gt;Calling a method is similar to access an attribute.  Suppose we want to invoke:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;document.getElementById(&amp;quot;app&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We would write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(.getElementById js/document &amp;quot;app&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we take a moment and remove the punctuation, we see that JavaScript references values
+as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;object function args ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In ClojureScript, we simply reverse that to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function object args ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And apply the appropriate language syntax.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s another example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+var example = { 
+  greeting: function(name) {
+    console.log(&amp;quot;hello &amp;quot; + name);
+  }
+};
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can invoke the greeting method from ClojureScript as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(.greeting js/example &amp;quot;Matt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The same in JavaScript would have been:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;example.greeting(&amp;quot;Matt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

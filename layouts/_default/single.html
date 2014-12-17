@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+  <title>{{ .Site.Title }} | ClojureScript Reference</title>
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}"/>
+  {{ partial "head.html" . }}
+</head>
+<body lang="en">
+{{ partial "header.html" . }}
+
+<section class="content clearfix">
+  <div class="quick-links">
+    <h3>Quick Links</h3>
+    <ul></ul>
+  </div>
+  <div class="main-content">
+    {{ .Content }}
+  </div>
+</section>
+
+{{ partial "footer.html" . }}
+</body>

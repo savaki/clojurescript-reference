@@ -1,1 +1,15 @@
-hello world
+<html>
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<section class="content">
+Welcome to the ClojureScript Reference.  This is intended as a resource for myself and
+others who are making the transition from JavaScript to ClojureScript.
+</section>
+
+{{ partial "footer.html" . }}
+</body>
+</html>

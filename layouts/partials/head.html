@@ -1,11 +1,9 @@
-<html>
-<head>
-  <link href='/css/website.css' rel='stylesheet' type='text/css'>
+<link href='/css/website.css' rel='stylesheet' type='text/css'>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
-    
-    
+    // for each h2 or h3 element in the main content, create a quick link
+    // and allow the user to scroll directly to the content
     $(".main-content h2, .main-content h3").each(function (index, element) {
       var target = "#" + element.id;
 
@@ -27,34 +25,7 @@
   });
 </script>
 
-
+<!-- client side syntax highlighting -->
 <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
 <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-<body>
-<div id="header">
-  <div class="content clearfix">
-    <ul class='nav clearfix overview'>
-      <li class="nav-item overview"><a href="/">Overview</a></li>
-      <li class="nav-item javascript"><a href="/javascript/">JavaScript</a></li>
-      <li class="nav-item reagent"><a href="/reagent/">Reagent</a></li>
-    </ul>
-    <h1>ClojureScript Reference</h1>
-  </div>
-</div>
-
-<section class="content">
-Welcome to the ClojureScript Reference.  This is intended as a resource for myself and
-others who are making the transition from JavaScript to ClojureScript.
-</section>
-
-<div id="footer">
-</div>
-
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
-</html>

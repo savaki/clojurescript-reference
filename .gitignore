@@ -1,0 +1,9 @@
+# ignore intellij files
+/.idea
+/*.iml
+
+# ignore sass generated files
+/static/css/website.css
+/static/css/website.css.map
+/.sass-cache
+
