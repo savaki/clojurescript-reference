@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Recent Content on my new hugo site </title>
+      <title>Recent Content on ClojureScript Quick Reference </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
     <link>http://localhost:1313/index.xml/</link>
     <language>en-us</language>
@@ -155,6 +155,7 @@ own line.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  (def values [1 2 3 4])
   (println (values 0)) ; prints 1
+  (println (values 100)) ; prints nil
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;toc_5&#34;&gt;Accessing Maps&lt;/h2&gt;
@@ -169,7 +170,8 @@ own line.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  (def params { &amp;quot;hello&amp;quot; &amp;quot;world&amp;quot; 
                 &amp;quot;foo&amp;quot; &amp;quot;bar&amp;quot; })
-  (println (params &amp;quot;hello&amp;quot;))                
+  (println (params &amp;quot;hello&amp;quot;)) ; prints hello                
+  (println (params &amp;quot;does-not-exist&amp;quot;)) ; prints nil                
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;ClojureScript allows you to put commas where you would expect, but it&amp;rsquo;s completely

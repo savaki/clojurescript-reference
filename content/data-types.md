@@ -61,6 +61,7 @@ ClojureScript:
 ```
   (def values [1 2 3 4])
   (println (values 0)) ; prints 1
+  (println (values 100)) ; prints nil
 ```
 
 ## Accessing Maps 
@@ -77,7 +78,8 @@ ClojureScript:
 ```
   (def params { "hello" "world" 
                 "foo" "bar" })
-  (println (params "hello"))                
+  (println (params "hello")) ; prints hello                
+  (println (params "does-not-exist")) ; prints nil                
 ```
 
 ClojureScript allows you to put commas where you would expect, but it's completely
