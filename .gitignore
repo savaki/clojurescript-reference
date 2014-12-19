@@ -7,3 +7,7 @@
 /static/css/website.css.map
 /.sass-cache
 
+# ignore hugo generated files
+/public
+
+
