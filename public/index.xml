@@ -3,7 +3,7 @@
   <channel>
       <title>Recent Content on my new hugo site </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://yourSiteHere/index.xml/</link>
+    <link>http://localhost:1313/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Reagent</title>
-      <link>http://yoursitehere/reagent/</link>
+      <link>http://localhost:1313/reagent/</link>
       <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
       
-      <guid>http://yoursitehere/reagent/</guid>
+      <guid>http://localhost:1313/reagent/</guid>
       <description>
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Reagent&lt;/h1&gt;
@@ -25,101 +25,164 @@
     
     <item>
       <title>JavaScript</title>
-      <link>http://yoursitehere/javascript/</link>
+      <link>http://localhost:1313/javascript/</link>
       <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
       
-      <guid>http://yoursitehere/javascript/</guid>
+      <guid>http://localhost:1313/javascript/</guid>
       <description>
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Working With JavaScript&lt;/h1&gt;
 
 &lt;h2 id=&#34;toc_1&#34;&gt;Accessing vars&lt;/h2&gt;
 
-&lt;p&gt;In general, JavaScript variables can be referenced using the js prefix.&lt;/p&gt;
+&lt;p&gt;Given:&lt;/p&gt;
 
-&lt;p&gt;For example, the &lt;em&gt;name&lt;/em&gt; var from the following snippet:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-  var name = &amp;quot;Matt&amp;quot;;
-&amp;lt;/script&amp;gt;
+&lt;pre&gt;&lt;code&gt;  var name = &amp;quot;Matt&amp;quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;can be accessed as:&lt;/p&gt;
+&lt;p&gt;JavaScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;js/name
+&lt;pre&gt;&lt;code&gt;  console.log(name)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;e.g.&lt;/p&gt;
+&lt;p&gt;ClojureScript&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-clojure&#34;&gt;(println js/name)
+&lt;pre&gt;&lt;code&gt;  (println js/name)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;toc_2&#34;&gt;Accessing object attributes&lt;/h2&gt;
 
-&lt;p&gt;Often, we want to access an attribute of a variable.  Given the following:&lt;/p&gt;
+&lt;p&gt;Given:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-  var person = {name: &amp;quot;Matt&amp;quot;}
-&amp;lt;/script&amp;gt;
+&lt;pre&gt;&lt;code&gt;  var person = {name: &amp;quot;Matt&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We can access this via:&lt;/p&gt;
+&lt;p&gt;JavaScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(.-name js/person)
+&lt;pre&gt;&lt;code&gt;  console.log(person.name);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;em&gt;js/person&lt;/em&gt; references the variable, person, and  .-name tells ClojureScript you want to
-access the attribute, name.&lt;/p&gt;
+&lt;p&gt;ClojureScript:&lt;/p&gt;
 
-&lt;p&gt;For example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(println &amp;quot;hello &amp;quot; (.-name js/person))
+&lt;pre&gt;&lt;code&gt;  (println (.-name js/person))
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JavaScript object attributes are accessed via the .-{property} macro&lt;/p&gt;
 
 &lt;h2 id=&#34;toc_3&#34;&gt;Invoking methods&lt;/h2&gt;
 
-&lt;p&gt;Calling a method is similar to access an attribute.  Suppose we want to invoke:&lt;/p&gt;
+&lt;p&gt;JavaScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;document.getElementById(&amp;quot;app&amp;quot;)
+&lt;pre&gt;&lt;code&gt;  document.getElementById(&amp;quot;app&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We would write:&lt;/p&gt;
+&lt;p&gt;ClojureScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(.getElementById js/document &amp;quot;app&amp;quot;)
+&lt;pre&gt;&lt;code&gt;  (.getElementById js/document &amp;quot;app&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If we take a moment and remove the punctuation, we see that JavaScript references values
-as follows:&lt;/p&gt;
+&lt;h2 id=&#34;toc_4&#34;&gt;Invoking chained methods&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;object function args ...
+&lt;p&gt;JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  document.getElementById(&amp;quot;app&amp;quot;).append(element);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;In ClojureScript, we simply reverse that to:&lt;/p&gt;
+&lt;p&gt;ClojureScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function object args ...
+&lt;pre&gt;&lt;code&gt;  (.append (.getElementById js/document &amp;quot;app&amp;quot;) element)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Types</title>
+      <link>http://localhost:1313/data-types/</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/data-types/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;ClojureScript Data Types&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Arrays (Vectors)&lt;/h2&gt;
+
+&lt;p&gt;JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  var values = [1, 2, 3, 4];
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;And apply the appropriate language syntax.&lt;/p&gt;
+&lt;p&gt;ClojureScript:&lt;/p&gt;
 
-&lt;p&gt;Here&amp;rsquo;s another example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-var example = { 
-  greeting: function(name) {
-    console.log(&amp;quot;hello &amp;quot; + name);
-  }
-};
-&amp;lt;/script&amp;gt;
+&lt;pre&gt;&lt;code&gt;  (def values [1 2 3 4])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We can invoke the greeting method from ClojureScript as follows:&lt;/p&gt;
+&lt;h2 id=&#34;toc_2&#34;&gt;Maps&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;(.greeting js/example &amp;quot;Matt&amp;quot;)
+&lt;p&gt;JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  var params = {&amp;quot;hello&amp;quot;: &amp;quot;world&amp;quot;, &amp;quot;foo&amp;quot;: &amp;quot;bar&amp;quot;};
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The same in JavaScript would have been:&lt;/p&gt;
+&lt;p&gt;ClojureScript:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;example.greeting(&amp;quot;Matt&amp;quot;)
+&lt;pre&gt;&lt;code&gt;  (def params { &amp;quot;hello&amp;quot; &amp;quot;world&amp;quot; 
+                &amp;quot;foo&amp;quot; &amp;quot;bar&amp;quot; })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ClojureScript allows you to put commas where you would expect, but it&amp;rsquo;s completely
+optional and generally not used.  For clarity, it&amp;rsquo;s best to put key/value pairs on their
+own line.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Sets&lt;/h2&gt;
+
+&lt;p&gt;A set is a collection with only unique elements.  JavaScript has no corresponding structure.&lt;/p&gt;
+
+&lt;p&gt;ClojureScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (def params #{ &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot;}) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Accessing Arrays (Vectors)&lt;/h2&gt;
+
+&lt;p&gt;JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  var values = [1, 2, 3, 4];
+  console.log(values[0]);  // prints 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ClojureScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (def values [1 2 3 4])
+  (println (values 0)) ; prints 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Accessing Maps&lt;/h2&gt;
+
+&lt;p&gt;JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  var params = {&amp;quot;hello&amp;quot;: &amp;quot;world&amp;quot;, &amp;quot;foo&amp;quot;: &amp;quot;bar&amp;quot;};
+  console.log(params[&amp;quot;hello&amp;quot;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ClojureScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (def params { &amp;quot;hello&amp;quot; &amp;quot;world&amp;quot; 
+                &amp;quot;foo&amp;quot; &amp;quot;bar&amp;quot; })
+  (println (params &amp;quot;hello&amp;quot;))                
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ClojureScript allows you to put commas where you would expect, but it&amp;rsquo;s completely
+optional and generally not used.  For clarity, it&amp;rsquo;s best to put key/value pairs on their
+own line.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Accessing Sets&lt;/h2&gt;
+
+&lt;p&gt;ClojureScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (def params #{ &amp;quot;a&amp;quot; &amp;quot;b&amp;quot; &amp;quot;c&amp;quot;})
+  (println (params &amp;quot;a&amp;quot;)) ; prints a
+  (println (params &amp;quot;d&amp;quot;)) ; prints nil
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

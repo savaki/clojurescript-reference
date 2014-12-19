@@ -41,8 +41,9 @@
   <div class="content clearfix">
     <ul class='nav clearfix javascript'>
       <li class="nav-item overview"><a href="/">Overview</a></li>
-      <li class="nav-item javascript"><a href="/javascript/">JavaScript</a></li>
-      <li class="nav-item reagent"><a href="/reagent/">Reagent</a></li>
+      <li class="nav-item data-types"><a href="/data-types/index.html">Data Types</a></li>
+      <li class="nav-item javascript"><a href="/javascript/index.html">JavaScript</a></li>
+      <li class="nav-item reagent"><a href="/reagent/index.html">Reagent</a></li>
     </ul>
     <h1>ClojureScript Reference</h1>
   </div>
@@ -60,91 +61,62 @@
 
 <h2 id="toc_1">Accessing vars</h2>
 
-<p>In general, JavaScript variables can be referenced using the js prefix.</p>
+<p>Given:</p>
 
-<p>For example, the <em>name</em> var from the following snippet:</p>
-
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-  var name = &quot;Matt&quot;;
-&lt;/script&gt;
+<pre><code>  var name = &quot;Matt&quot;;
 </code></pre>
 
-<p>can be accessed as:</p>
+<p>JavaScript:</p>
 
-<pre><code>js/name
+<pre><code>  console.log(name)
 </code></pre>
 
-<p>e.g.</p>
+<p>ClojureScript</p>
 
-<pre><code class="language-clojure">(println js/name)
+<pre><code>  (println js/name)
 </code></pre>
 
 <h2 id="toc_2">Accessing object attributes</h2>
 
-<p>Often, we want to access an attribute of a variable.  Given the following:</p>
+<p>Given:</p>
 
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-  var person = {name: &quot;Matt&quot;}
-&lt;/script&gt;
+<pre><code>  var person = {name: &quot;Matt&quot;}
 </code></pre>
 
-<p>We can access this via:</p>
+<p>JavaScript:</p>
 
-<pre><code>(.-name js/person)
+<pre><code>  console.log(person.name);
 </code></pre>
 
-<p><em>js/person</em> references the variable, person, and  .-name tells ClojureScript you want to
-access the attribute, name.</p>
+<p>ClojureScript:</p>
 
-<p>For example:</p>
-
-<pre><code>(println &quot;hello &quot; (.-name js/person))
+<pre><code>  (println (.-name js/person))
 </code></pre>
+
+<p>JavaScript object attributes are accessed via the .-{property} macro</p>
 
 <h2 id="toc_3">Invoking methods</h2>
 
-<p>Calling a method is similar to access an attribute.  Suppose we want to invoke:</p>
+<p>JavaScript:</p>
 
-<pre><code>document.getElementById(&quot;app&quot;)
+<pre><code>  document.getElementById(&quot;app&quot;)
 </code></pre>
 
-<p>We would write:</p>
+<p>ClojureScript:</p>
 
-<pre><code>(.getElementById js/document &quot;app&quot;)
+<pre><code>  (.getElementById js/document &quot;app&quot;)
 </code></pre>
 
-<p>If we take a moment and remove the punctuation, we see that JavaScript references values
-as follows:</p>
+<h2 id="toc_4">Invoking chained methods</h2>
 
-<pre><code>object function args ...
+<p>JavaScript:</p>
+
+<pre><code>  document.getElementById(&quot;app&quot;).append(element);
 </code></pre>
 
-<p>In ClojureScript, we simply reverse that to:</p>
+<p>ClojureScript:</p>
 
-<pre><code>function object args ...
-</code></pre>
-
-<p>And apply the appropriate language syntax.</p>
-
-<p>Here&rsquo;s another example:</p>
-
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-var example = { 
-  greeting: function(name) {
-    console.log(&quot;hello &quot; + name);
-  }
-};
-&lt;/script&gt;
-</code></pre>
-
-<p>We can invoke the greeting method from ClojureScript as follows:</p>
-
-<pre><code>(.greeting js/example &quot;Matt&quot;)
-</code></pre>
-
-<p>The same in JavaScript would have been:</p>
-
-<pre><code>example.greeting(&quot;Matt&quot;)
+<pre><code>  (.append (.getElementById js/document &quot;app&quot;) element)
 </code></pre>
 
   </div>
@@ -153,4 +125,7 @@ var example = {
 <div id="footer">
 </div>
 
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
