@@ -40,7 +40,7 @@ a {
       #header .nav .nav-item a {
         color: #808080;
         font-size: 15px; }
-    #header .nav.overview .overview, #header .nav.data-types .data-types, #header .nav.reagent .reagent, #header .nav.javascript .javascript {
+    #header .nav.overview .overview, #header .nav.data-types .data-types, #header .nav.control-flow .control-flow, #header .nav.reagent .reagent, #header .nav.javascript .javascript {
       border-bottom: 2px solid #D26911; }
 
 .content {

@@ -86,6 +86,60 @@ ClojureScript allows you to put commas where you would expect, but it's complete
 optional and generally not used.  For clarity, it's best to put key/value pairs on their
 own line.
 
+## Accessing Nested Maps 
+
+JavaScript:
+
+```
+  var params = {
+    "us": {"currency": "usd"},
+    "jp": {"currency": "yen"}
+  }
+     
+  console.log(params["us"]["currency"]); // prints usd
+```
+
+ClojureScript:
+
+```
+  (def params {
+    "us" {"currency" "usd"}
+    "jp" {"currency" "yen"}
+  })
+
+  (println (get-in params ["us" "currency"])) ; prints usd
+```
+
+get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
+
+## Accessing Nested Maps/Arrays 
+
+Illustrates accessing complex objects that contain both maps and arrays.
+
+JavaScript:
+
+```
+  var params = {
+    "us": {"timezones": ["EST", "CST", "MST", "PST", "HST", "AKST"]},
+    "jp": {"timezones": ["JST"]}
+  }
+     
+  console.log(params["us"]["timezones"][2]]); // prints MST
+```
+
+ClojureScript:
+
+```
+  (def params {
+    "us" {"timezones" ["EST" "CST" "MST" "PST" "HST" "AKST"]}
+    "jp" {"timezones" ["JST"]}
+  })
+
+  (println (get-in params ["us" "timezones" 2])) ; prints MST
+```
+
+get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
+
 ## Accessing Sets 
 
 ClojureScript:
