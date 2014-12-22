@@ -1,8 +1,9 @@
 $break-mobile: 300px;
 $break-tablet: 720px;
-$break-desktop: 900px;
+$break-desktop: 1024px;
 
 $width-desktop: 920px;
+$width-tablet: 700px;
 
 $light-grey: #f0f0f0;
 $grey: #e0e0e0;
@@ -33,9 +34,16 @@ body, p, td, th, h1, h2, h3, h3, h4 {
 }
 
 @mixin content() {
-  width: $width-desktop;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: $break-tablet) and (max-width: $break-desktop) {
+    width: $width-tablet;
+  }
+
+  @media screen and (min-width: $break-desktop) {
+    width: $width-desktop;
+  }
 }
 
 a {
@@ -43,6 +51,12 @@ a {
 }
 
 //--------------------------------------------------------------------------------
+
+@media screen and (max-width: $break-desktop) {
+  .for-me-on-github {
+    display: none;
+  }
+}
 
 #header {
   border-bottom: 1px solid #f0f0f0;
@@ -59,6 +73,14 @@ a {
     line-height: 1em;
     margin: 0;
     @include header-element-padding;
+
+    @media screen and (max-width: $break-desktop) {
+      font-size: 18px;
+    }
+
+    @media screen and (min-width: $break-desktop) {
+      font-size: 20px;
+    }
   }
 
   .nav {
@@ -69,13 +91,29 @@ a {
 
     .nav-item {
       @include header-element-padding;
-      padding-left: 20px;
-      padding-right: 20px;
       float: left;
+
+      @media screen and (max-width: $break-desktop) {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      @media screen and (min-width: $break-desktop) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
       a {
         color: #808080;
         font-size: 15px;
+
+        @media screen and (max-width: $break-desktop) {
+          font-size: 13px;
+        }
+
+        @media screen and (min-width: $break-desktop) {
+          font-size: 15px;
+        }
       }
     }
 
@@ -104,11 +142,23 @@ section {
 }
 
 .quick-links {
-  position: fixed;
   box-sizing: border-box;
-  float: left;
-  width: 300px;
   padding: 0 5px;
+
+  @media screen and (max-width: $break-tablet) {
+  }
+
+  @media screen and (min-width: $break-tablet) and (max-width: $break-desktop) {
+    position: fixed;
+    width: 250px;
+    float: left;
+  }
+
+  @media screen and (min-width: $break-desktop) {
+    position: fixed;
+    width: 300px;
+    float: left;
+  }
 
   .links {
     padding: 0;
@@ -159,9 +209,12 @@ section {
 
 .main-content {
   box-sizing: border-box;
-  margin-left: 35%;
-  width: 65%;
   padding: 0 5px;
+
+  @media screen and (min-width: $break-tablet) {
+    width: 65%;
+    margin-left: 35%;
+  }
 }
 
 pre {
