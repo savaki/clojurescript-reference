@@ -39,8 +39,8 @@ value provided.
 (swap! counter-state (fn [n] (+ n 1))) ; @counter-state is now 2
 ```
 
-swap! (a) takes the existing state, (b) passes it to a function, and (c) resets
-the value of the atom to the return value of the function.
+swap! a) takes the existing state, b) passes it to a function, and c) assigns
+the value of the atom to the value returned by the function.
 
 We could also have written the example as follows:
 
