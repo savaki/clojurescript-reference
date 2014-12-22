@@ -48,6 +48,15 @@ ClojureScript:
 
 JavaScript object attributes are accessed via the .-{property} macro
 
+### aget - simpler attribute getter
+
+aget provides a simpler way to access nested javascript attributes
+
+```
+; object["p1"]["p2"]["p3"]
+(aget js/object "p1" "p2" "p3")
+```
+
 ### Setting object attributes
 
 Given: 
@@ -69,6 +78,15 @@ ClojureScript:
 ```
 
 JavaScript object attributes are accessed via the .-{property} macro
+
+### aset - simple object attribute getter
+
+aset provides an alternate way to set attributes on javascript objects
+
+```
+; window.location = "http://www.google.com")
+(aset js/location "location" "http://www.google.com")
+```
 
 ### Invoking methods
 
