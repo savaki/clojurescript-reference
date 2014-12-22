@@ -174,6 +174,80 @@ ClojureScript:
   (println (params "d")) ; prints nil
 ```
 
+## Manipulating Collections
+
+### map
+
+map takes a collection of items and applies a function to each
+elements and returns the resulting collection.
+
+```
+(def numbers [2 3 5 7])
+
+; square each element
+(def square (fn [x] (* x x)))
+
+; square in shorthand notation
+(def square #(* % %))
+
+; returns (4 9 25 49)
+(map square numbers)
+```
+
+Notice that a set is returned. To convert this into an array
+you can do the following:
+
+```
+(vec (map square numbers))
+```
+
+### filter
+
+filter takes a collections and a applies a function over each
+element and returns the set of elements where the function
+returned true.
+
+```
+(def values [1 2 3 4 5 6])
+
+(def is-odd? #(= (mod % 2) 1))
+
+; returns (1 3 5)
+(filter is-odd? values)
+```
+
+Another example:
+
+```
+(def greater-than-two? #(> % 2))
+
+; returns (3 4 5 6)
+(filter greater-than-two? values)
+```
+
+### reduce
+
+Apply an aggregating function to a collection to return a
+single scalar value.
+
+```
+(def values [1 2 3 4])
+
+; returns 10 
+; e.g. (((1 + 2) + 3) + 4)
+(reduce + values)
+
+; returns 24 
+; e.g. (((1 * 2) * 3) * 4)
+(reduce * values)
+
+; also returns 10 using a custom
+; function.   
+(defn plus [a b] (+ a b))
+(reduce plus values)
+```
+
+
 
 
 

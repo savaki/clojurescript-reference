@@ -94,13 +94,13 @@ a {
       float: left;
 
       @media screen and (max-width: $break-desktop) {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 6px;
+        padding-right: 6px;
       }
 
       @media screen and (min-width: $break-desktop) {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
       a {
@@ -120,6 +120,7 @@ a {
     &.overview .overview,
     &.data-types .data-types,
     &.control-flow .control-flow,
+    &.basic-usage .basic-usage,
     &.reagent .reagent,
     &.atoms .atoms,
     &.javascript .javascript {
@@ -135,10 +136,6 @@ a {
 .content {
   @include content;
   position: relative;
-}
-
-section {
-  padding-top: 20px;
 }
 
 .quick-links {
