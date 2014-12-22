@@ -4,7 +4,9 @@ active_tab: reagent
 ---
 # Reagent
 
-## Creating a component
+## Basic Usage
+
+### Creating a component
 
 ```
 (defn salutations []
@@ -22,7 +24,7 @@ renders:
 </div>  
 ```
 
-## Composing Components
+### Composing components
 
 ```
 (defn greetings [name]
@@ -47,7 +49,7 @@ renders:
 </div>
 ```
 
-## Iterating Through Arrays
+### Iterating arrays
 
 ```
 (defn week-day [day]

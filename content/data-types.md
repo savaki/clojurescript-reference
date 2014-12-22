@@ -4,7 +4,9 @@ active_tab: data-types
 ---
 # ClojureScript Data Types
 
-## Arrays (Vectors)
+## Data Types
+
+### Arrays (vectors)
 
 JavaScript:
 
@@ -18,7 +20,7 @@ ClojureScript:
   (def values [1 2 3 4])
 ```
 
-## Maps 
+### Maps 
 
 JavaScript:
 
@@ -37,7 +39,7 @@ ClojureScript allows you to put commas where you would expect, but it's complete
 optional and generally not used.  For clarity, it's best to put key/value pairs on their
 own line.
 
-## Sets 
+### Sets 
 
 A set is a collection with only unique elements.  JavaScript has no corresponding structure.
 
@@ -47,7 +49,9 @@ ClojureScript:
   (def params #{ "1" "2" "3"}) 
 ```
 
-## Accessing Arrays (Vectors)
+## Accessing Data Types
+
+### Accessing arrays (vectors)
 
 JavaScript:
 
@@ -64,7 +68,7 @@ ClojureScript:
   (println (values 100)) ; prints nil
 ```
 
-## Accessing Maps 
+### Accessing maps 
 
 JavaScript:
 
@@ -86,7 +90,7 @@ ClojureScript allows you to put commas where you would expect, but it's complete
 optional and generally not used.  For clarity, it's best to put key/value pairs on their
 own line.
 
-## Accessing Nested Maps 
+### Accessing nested maps 
 
 JavaScript:
 
@@ -112,7 +116,7 @@ ClojureScript:
 
 get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
 
-## Accessing Nested Maps/Arrays 
+### Accessing nested maps/arrays 
 
 Illustrates accessing complex objects that contain both maps and arrays.
 
@@ -140,7 +144,7 @@ ClojureScript:
 
 get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
 
-## Accessing Sets 
+### Accessing sets 
 
 ClojureScript:
 

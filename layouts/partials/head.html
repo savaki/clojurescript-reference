@@ -1,26 +1,31 @@
 <link href='/css/website.css' rel='stylesheet' type='text/css'>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
+  function highlight(element) {
+    $('a.quick-link').removeClass('active');
+    $(element).addClass("active");
+    return false;
+  }
+
   $(document).ready(function () {
     // for each h2 or h3 element in the main content, create a quick link
     // and allow the user to scroll directly to the content
     $(".main-content h2, .main-content h3").each(function (index, element) {
       var target = "#" + element.id;
-
       var link = document.createElement("a");
       link.setAttribute("href", "#");
-      link.innerHTML = element.innerText;
+      link.className = 'quick-link ' + element.tagName;
+      link.innerHTML = $(element).text();
+
       link.onclick = function (event) {
+        highlight(event.target);
+
         $('html, body').animate({
           scrollTop: $(target).offset().top
-        }, 1000);
+        }, 500);
       };
 
-      var item = document.createElement("li");
-      item.appendChild(link);
-      item.className = element.tagName;
-
-      $(".quick-links ul").append(item);
+      $(".quick-links div").append(link);
     });
   });
 </script>

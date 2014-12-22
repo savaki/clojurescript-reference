@@ -4,6 +4,11 @@ $break-desktop: 900px;
 
 $width-desktop: 920px;
 
+$light-grey: #f0f0f0;
+$grey: #e0e0e0;
+$blue: #4080C0;
+$orange: #D26911;
+
 //--------------------------------------------------------------------------------
 
 .clearfix:before,
@@ -80,14 +85,18 @@ a {
     &.reagent .reagent,
     &.atoms .atoms,
     &.javascript .javascript {
-      border-bottom: 2px solid #D26911;
+      border-bottom: 2px solid $orange;
     }
   }
+}
 
+#footer {
+  height: 500px;
 }
 
 .content {
   @include content;
+  position: relative;
 }
 
 section {
@@ -95,15 +104,62 @@ section {
 }
 
 .quick-links {
+  position: fixed;
   box-sizing: border-box;
   float: left;
-  width: 35%;
+  width: 300px;
   padding: 0 5px;
+
+  .links {
+    padding: 0;
+
+    .quick-link {
+      text-decoration: none;
+      color: $blue;
+      font-size: 13px;
+      display: block;
+      list-style: none;
+      border-right: 1px solid $grey;
+      border-bottom: 1px solid $grey;
+      border-left: 1px solid $grey;
+      box-sizing: border-box;
+      margin-right: 15px;
+      padding: 6px 10px;
+
+      &.H2 {
+        background-color: $light-grey;
+
+        &:hover {
+          background-color: $light-grey;
+        }
+      }
+
+      &.H3 {
+        padding-left: 20px;
+
+        &:before {
+          content: '- ';
+        }
+      }
+
+      &.active {
+        border-left: 3px solid $orange;
+      }
+
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+
+    .quick-link:first-of-type {
+      border-top: 1px solid $grey;
+    }
+  }
 }
 
 .main-content {
   box-sizing: border-box;
-  float: left;
+  margin-left: 35%;
   width: 65%;
   padding: 0 5px;
 }

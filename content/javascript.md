@@ -4,7 +4,9 @@ active_tab: javascript
 ---
 # Working With JavaScript
 
-## Accessing vars
+## Basic Usage
+
+### Accessing vars
 
 Given:
 
@@ -24,7 +26,7 @@ ClojureScript
   (println js/name)
 ```
 
-## Accessing object attributes
+### Accessing object attributes
 
 Given: 
  
@@ -46,7 +48,7 @@ ClojureScript:
 
 JavaScript object attributes are accessed via the .-{property} macro
 
-## Invoking methods
+### Invoking methods
 
 JavaScript:
 
@@ -60,7 +62,7 @@ ClojureScript:
   (.getElementById js/document "app")
 ```
 
-## Invoking chained methods
+### Invoking chained methods
 
 JavaScript:
 

@@ -4,7 +4,9 @@ active_tab: control-flow
 ---
 # ClojureScript Control Flow
 
-## ==, >, >=, <, and <=
+## Conditionals
+
+### ==, >, >=, <, and <=
 
 JavaScript
 
@@ -26,7 +28,7 @@ ClojureScript:
 (<= 1 0) ; false
 ```
 
-## if 
+### if 
 
 JavaScript:
 
@@ -46,7 +48,7 @@ ClojureScript:
   println("i am false"))
 ```
 
-## if/else-if/else
+### if/else-if/else
 
 JavaScript:
 

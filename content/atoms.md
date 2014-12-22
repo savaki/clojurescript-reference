@@ -20,7 +20,7 @@ An atom is a container that represents state within an application.
 One common confusion is to reference the atom versus the contents of the atom.
 Remember to use the ```@``` symbol to reference the contents of the atom.
 
-## Set State - reset!
+### reset! - setting state 
 
 ```
 (def counter-state (atom 1))
@@ -31,7 +31,7 @@ Remember to use the ```@``` symbol to reference the contents of the atom.
 The reset! command throws out the previous value of the atom and resets it to the
 value provided.
 
-## Update State - swap!
+### swap! - updating values 
 
 ```
 (def counter-state (atom 1))
@@ -54,5 +54,31 @@ We could also have written the example as follows:
 
 ```inc``` is a function that takes one argument and returns its value plus one. 
 
+### swap! - updating nested values 
 
+JavaScript:
+
+```
+var data = {
+  'us': { 'currency': 'usd' },
+  'jp': { 'currency': 'yen' }
+};
+
+data['us']['currency'] = '$';
+```
+
+ClojureScript:
+
+```
+(def data {
+  'us' { 'currency' 'usd' }
+  'jp' { 'currency' 'yen' }
+})
+
+; changes currency from usd to $
+(swap! data assoc-in ['us' 'currency'] "$") 
+```
+
+In this case, we're using the assoc-in function to accept data and return a new
+map with ```['us' 'currency']``` modified with ```$``` 
 
