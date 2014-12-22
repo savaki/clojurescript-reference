@@ -13,8 +13,11 @@ An atom is a container that represents state within an application.
 ```
 (def my-name (atom "Matt"))
 
-(println my-name) ; prints the atom itself, #<Atom: matt>
-(println @my-name) ; prints the contents of the atom, "Matt"                                            
+; prints the atom itself, #<Atom: matt>
+(println my-name) 
+
+; prints the contents of the atom, "Matt"
+(println @my-name)                                             
 ```
 
 One common confusion is to reference the atom versus the contents of the atom.
@@ -25,7 +28,8 @@ Remember to use the ```@``` symbol to reference the contents of the atom.
 ```
 (def counter-state (atom 1))
 
-(reset! counter-state 2) ; @counter-state is now 2
+; @counter-state is now 2
+(reset! counter-state 2) 
 ```
 
 The reset! command throws out the previous value of the atom and resets it to the
@@ -36,7 +40,8 @@ value provided.
 ```
 (def counter-state (atom 1))
 
-(swap! counter-state (fn [n] (+ n 1))) ; @counter-state is now 2
+; @counter-state is now 2
+(swap! counter-state (fn [n] (+ n 1))) 
 ```
 
 swap! a) takes the existing state, b) passes it to a function, and c) assigns
@@ -48,8 +53,11 @@ We could also have written the example as follows:
 (defn plus-one [n]
   (+ 1 n))
   
-(swap! counter-state plus-one) ; uses our custom function, plus-one
-(swap! counter-state inc) ; uses the clojurescript built-in function, inc
+; uses our custom function, plus-one
+(swap! counter-state plus-one)
+ 
+; uses the clojurescript built-in function, inc
+(swap! counter-state inc) 
 ```
 
 ```inc``` is a function that takes one argument and returns its value plus one. 

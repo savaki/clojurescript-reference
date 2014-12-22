@@ -25,7 +25,8 @@ ClojureScript:
 JavaScript:
 
 ```
-  var params = {"hello": "world", "foo": "bar"};
+  var params = {"hello": "world",
+                "foo": "bar"};
 ```
 
 ClojureScript:
@@ -73,7 +74,8 @@ ClojureScript:
 JavaScript:
 
 ```
-  var params = {"hello": "world", "foo": "bar"};
+  var params = {"hello": "world",
+                "foo": "bar"};
   console.log(params["hello"]);
 ```
 
@@ -82,8 +84,12 @@ ClojureScript:
 ```
   (def params { "hello" "world" 
                 "foo" "bar" })
-  (println (params "hello")) ; prints hello                
-  (println (params "does-not-exist")) ; prints nil                
+
+  ; prints hello                
+  (println (params "hello")) 
+  
+  ; prints nil
+  (println (params "does-not-exist"))                 
 ```
 
 ClojureScript allows you to put commas where you would expect, but it's completely
@@ -100,7 +106,8 @@ JavaScript:
     "jp": {"currency": "yen"}
   }
      
-  console.log(params["us"]["currency"]); // prints usd
+  // prints usd
+  console.log(params["us"]["currency"]); 
 ```
 
 ClojureScript:
@@ -111,7 +118,8 @@ ClojureScript:
     "jp" {"currency" "yen"}
   })
 
-  (println (get-in params ["us" "currency"])) ; prints usd
+  ; prints usd
+  (println (get-in params ["us" "currency"])) 
 ```
 
 get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
@@ -124,22 +132,34 @@ JavaScript:
 
 ```
   var params = {
-    "us": {"timezones": ["EST", "CST", "MST", "PST", "HST", "AKST"]},
+    "us": {"timezones": ["EST", 
+                         "CST", 
+                         "MST", 
+                         "PST", 
+                         "HST", 
+                         "AKST"]},
     "jp": {"timezones": ["JST"]}
   }
      
-  console.log(params["us"]["timezones"][2]]); // prints MST
+  // prints MST     
+  console.log(params["us"]["timezones"][2]]); 
 ```
 
 ClojureScript:
 
 ```
   (def params {
-    "us" {"timezones" ["EST" "CST" "MST" "PST" "HST" "AKST"]}
+    "us" {"timezones" ["EST" 
+                       "CST" 
+                       "MST" 
+                       "PST" 
+                       "HST" 
+                       "AKST"]}
     "jp" {"timezones" ["JST"]}
   })
 
-  (println (get-in params ["us" "timezones" 2])) ; prints MST
+  ; prints MST
+  (println (get-in params ["us" "timezones" 2])) 
 ```
 
 get-in accepts a vector that allows you to traverse arbitrarily deep nested maps. 
