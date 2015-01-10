@@ -74,7 +74,7 @@ JavaScript:
 ClojureScript:
 
 ```
-  (set! (.-name js/person) "Mike)
+  (set! (.-name js/person) "Mike")
 ```
 
 JavaScript object attributes are accessed via the .-{property} macro
