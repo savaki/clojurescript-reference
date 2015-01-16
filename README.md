@@ -5,6 +5,8 @@ clojurescript-reference
 
 notes to myself on working with ClojureScript especially wrt Reagent
 
+https://github.com/savaki/clojurescript-reference
+
 ## Prerequisites
 
 This site is built using [Hugo](http://gohugo.io) and [Sass](http://sass-lang.com/).  You'll need both installed to go further.
